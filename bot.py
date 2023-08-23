@@ -42,7 +42,7 @@ def run_discord_bot():
     @client.event
 
     async def on_ready():
-        print(f'{client.user} is now longer running')
+        print(f'{client.user} is now  running')
         # send_messages("i am running bitch")        
 
     @client.event
