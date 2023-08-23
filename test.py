@@ -1,8 +1,12 @@
-user_message = "--300 chak"
-if user_message[:2] == "--":
-    for x in user_message:
-        if x == " ":            
-            last = user_message.index(x)
-            str_time = user_message[2:last]
-            print(int(str_time))
-            print(user_message[last+1:])
+import os
+import json
+if os.path.exists(os.getcwd() +"/config.json"):
+
+    with open("./config.json") as f:
+        configData = json.load(f)
+        print(configData["TOKEN"])
+
+
+else:
+    print("NO token found")
+    pass

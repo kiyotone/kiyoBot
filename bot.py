@@ -1,10 +1,29 @@
 import discord
 import responses
+import os
+import json
 
 times = 0
 username = "NOne"
 user_message = "NOne"
 channel = "NONE"
+
+
+
+if os.path.exists(os.getcwd() +"/config.json"):
+
+    with open("./config.json") as f:
+        configData = json.load(f)
+        print("NO token found")
+
+
+else:
+    print("NO token found")
+    pass
+
+TOKEN = configData["TOKEN"]
+
+print(TOKEN)
 
 async def send_messages(message,user_message,is_private):
     try :
@@ -15,7 +34,7 @@ async def send_messages(message,user_message,is_private):
 
 
 def run_discord_bot():
-    TOKEN = 'MTE0MzU0MDYyMjE1OTAwMzY5OA.GtXeCO.QMNxmfdlWdPkTauSW_eDGwJp1TQXXb3xjEWNtk'
+    
     intents = discord.Intents.default()
     intents.message_content = True
     client = discord.Client(intents=intents)
