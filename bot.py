@@ -84,4 +84,4 @@ def run_discord_bot():
             
             await send_messages(message,user_message,is_private=False)
         
-    client.run(TOKEN)
+    client.run(TOKEN)   
