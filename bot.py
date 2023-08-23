@@ -1,21 +1,18 @@
 import discord
+from discord.ext import commands
 import responses
 import os
 import json
 
 times = 0
-username = "NOne"
-user_message = "NOne"
+username = "NONE"
+user_message = "NONE"
 channel = "NONE"
-
-
 
 if os.path.exists(os.getcwd() +"/config.json"):
 
     with open("./config.json") as f:
         configData = json.load(f)
-        print("NO token found")
-
 
 else:
     print("NO token found")
@@ -37,15 +34,14 @@ def run_discord_bot():
     
     intents = discord.Intents.default()
     intents.message_content = True
-    client = discord.Client(intents=intents)
+    client = commands.Bot(command_prefix = 'k!', intents = intents)
 
     @client.event
-
     async def on_ready():
         print(f'{client.user} is now  running')
         # send_messages("i am running bitch")        
 
-    @client.event
+    @client.command()
     async def on_message(message):
         global times
         global username
@@ -88,4 +84,4 @@ def run_discord_bot():
             
             await send_messages(message,user_message,is_private=False)
         
-    client.run(TOKEN)
+    client.run(TOKEN)   
