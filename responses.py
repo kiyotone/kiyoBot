@@ -11,6 +11,8 @@ def handle_response(message)-> str :
     
     if p_message == 'say aaditya':
         return "<@729738625004077177>"
+
+
     
     if p_message == 'gg':
         return "ez"
